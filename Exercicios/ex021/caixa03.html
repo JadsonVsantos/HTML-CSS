@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bordas personalizadas</title>
+    <style>
+        h1 {
+            border: 12px solid transparent; /* Não precisar tirar a uma das bordas se não o comando não funciona*/
+            padding: 10px;
+            border-image-source: url('borda.png');
+            border-image-slice: 27;
+            border-image-repeat: repeat;
+
+            border-image: url("borda.png") 27 repeat; /* simplificando os comonado em um unico comando shorthands*/
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste de bordas</h1>
+</body>
+</html>
