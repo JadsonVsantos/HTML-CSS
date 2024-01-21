@@ -4,19 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabelas</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+           }
+          
+        th, td {
+            border: 1px solid gray;
+            padding: 10px;
+        }
+        caption {
+            font-size: 1,5em;
+            font-weight: bolder;
+            padding: 10px;
+           }
+    </style>
 </head>
 <body>
-    <caption>Notas dos Alunos</caption>
-    <thead>
-        <tr>
-            <th>Área</th>
-        </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-    <tfoot>
-
-    </tfoot>
+    <table>
+        <caption>Notas dos Alunos</caption>
+        <thead>
+            <tr>
+                <th rowspan="2">Área</th>
+                <td rowspan="2">Disciplinas</td>
+                <td>notas</td>
+                <!--<td>nota 1</td>-->
+                <!--<td>nota 2</td>-->
+                <!--<td>Média</td>-->
+            </tr>
+        </thead>
+        <tbody>
+            <td rowspan="4">Exatas</td>
+            <!--<td>Matemática</td>-->
+            <!--<td>Física</td>-->
+            <!--<td>Quimica</td>-->
+            <!--<td>Biologia</td>-->
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
 </body>
 </html>
