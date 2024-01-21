@@ -18,8 +18,8 @@
 
 html, body {
     min-height: 100vh;
-background-color: darkgray;
-font-family: var(--font1);
+    background-color: darkgray;
+    font-family: var(--font1);
 }
 
 header {
@@ -29,10 +29,10 @@ header {
 }
 
 header > h1 {
-padding-top: 50px;
-font-variant: small-caps;
-font-family: var(--font2);
-font-size: 10vw;
+    padding-top: 50px;
+    font-variant: small-caps;
+    font-family: var(--font2);
+    font-size: 10vw;
 }
 
 header > p {
@@ -54,7 +54,10 @@ section {
     line-height: 2em;
     padding-left: 30px;
     font-family: var(--font3);
-    font-size: 3,5vw;
+    font-size: 4,5vw;
+}
+section > p {
+    padding: 2em;
 }
 section.normal {
     background-color: white;
@@ -64,11 +67,24 @@ section.normal {
 section.imagem {
     background-color: rgb(51, 51, 51);
     color: white;
+    box-shadow: 6px 6px 13px 0px rgba(0, 0, 0, 0.473);
+    background-size: cover;
+    background-attachment: fixed;
 }
 section.imagem > p {
     display: inline-block;
     padding: 5px;
-    background-color: rgba(0, 0, 0, 0.253);
+    background-color: rgba(0, 0, 0, 0.514);
+    text-shadow: 1px 1px 0px black;
+}
+section#imagem01 {
+    background-image: url('../Imagem/background001.jpg');
+    background-position: right center;
+    /*background-size: cover;*/
+}
+section#imagem02 {
+    background-image: url('../Imagem/background002.jpg');
+    /*background-size: cover;*/
 }
 footer {
     background-color: black;
