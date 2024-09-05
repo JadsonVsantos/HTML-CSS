@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relógio Digital Redondo com Data</title>
+  <style>
+    .clock-container {
+      background-color: #000; /* cor preto */
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .clock {
+      font-size: 24px;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+
+    .date-display {
+      font-size: 18px;
+      color: #fff;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock-container">
+    <div class="clock">
+      <span id="clock-display"></span>
+      <div class="date-display" id="date-display"></div>
+    </div>
+  </div>
+
+  <script>
+    const clockDisplay = document.getElementById('clock-display');
+    const dateDisplay = document.getElementById('date-display');
+
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      const date = now.toLocaleDateString();
+
+      clockDisplay.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      dateDisplay.textContent = date;
+    }
+
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
