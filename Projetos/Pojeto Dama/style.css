@@ -1,0 +1,25 @@
+.tabuleiro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   }
+   
+   .linha {
+    display: flex;
+   }
+   
+   .casa {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+   }
+   
+   .casa.preta {
+    background-color: #333;
+   }
+   
+   .casa.selecionada {
+    background-color: #ff0;
+   }
