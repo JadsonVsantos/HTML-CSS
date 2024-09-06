@@ -1,0 +1,109 @@
+/* General styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+  }
+  
+  h1, h2, h3 {
+    margin: 0;
+  }
+  
+  /* Navigation bar */
+  .navbar {
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .navbar-nav {
+    display: flex;
+  }
+  
+  .navbar-nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 0 15px;
+  }
+  
+  .navbar-nav a:hover {
+    color: #007bff;
+  }
+  
+  /* Content area */
+  .content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .content-header {
+    margin-bottom: 20px;
+  }
+  
+  .content-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  .content-header p {
+    font-size: 18px;
+  }
+  
+  /* Image */
+  .content-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  /* Information panels */
+  .info-panel {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .info-panel h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .info-panel p {
+    font-size: 16px;
+  }
+  
+  /* Call to action */
+  .cta {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .cta:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
