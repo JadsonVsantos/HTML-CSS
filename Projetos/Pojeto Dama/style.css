@@ -22,4 +22,120 @@
    
    .casa.selecionada {
     background-color: #ff0;
-   }
+   } 
+
+   .tabela-dama {
+    border-collapse: collapse;
+    width: 800px;
+    height: 800px;
+    border: 1px solid #ccc;
+  }
+  
+  .tabela-dama td {
+    border: 1px solid #ccc;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .dama {
+    background-color: #ff69b4;
+    color: #fff;
+  }
+  
+  .tabela-dama tr:nth-child(even) td:nth-child(even) {
+    background-color: #f0f0f0;
+  }
+  
+  .tabela-dama tr:nth-child(odd) td:nth-child(odd) {
+    background-color: #f0f0f0;
+  }
+  /* Estilo para as peças de Dama */
+
+  .peca-branca {
+    background-color: #FFFFFF; /* Cor branca */
+    border-radius: 50%; /* Forma circular */
+    width: 30px; /* Tamanho da peça */
+    height: 30px; /* Tamanho da peça */
+    display: inline-block; /* Exibe a peça como um bloco inline */
+    margin: 5px; /* Margem entre as peças */
+    cursor: pointer; /* Muda o cursor para uma mão quando o usuário passa o mouse sobre a peça */
+  }
+  
+  .peca-preta {
+    background-color: #000000; /* Cor preta */
+    border-radius: 50%; /* Forma circular */
+    width: 30px; /* Tamanho da peça */
+    height: 30px; /* Tamanho da peça */
+    display: inline-block; /* Exibe a peça como um bloco inline */
+    margin: 5px; /* Margem entre as peças */
+    cursor: pointer; /* Muda o cursor para uma mão quando o usuário passa o mouse sobre a peça */
+  }
+  
+  .dama {
+    background-color: #FFD700; /* Cor amarela */
+    border-radius: 50%; /* Forma circular */
+    width: 30px; /* Tamanho da peça */
+    height: 30px; /* Tamanho da peça */
+    display: inline-block; /* Exibe a peça como um bloco inline */
+    margin: 5px; /* Margem entre as peças */
+    cursor: pointer; /* Muda o cursor para uma mão quando o usuário passa o mouse sobre a peça */
+  }
+  
+  .peca-adversaria {
+    background-color: #FF0000; /* Cor vermelha */
+    border-radius: 50%; /* Forma circular */
+    width: 30px; /* Tamanho da peça */
+    height: 30px; /* Tamanho da peça */
+    display: inline-block; /* Exibe a peça como um bloco inline */
+    margin: 5px; /* Margem entre as peças */
+    cursor: pointer; /* Muda o cursor para uma mão quando o usuário passa o mouse sobre a peça */
+  }
+  /* Estilo para as peças de Dama */
+
+/* Peças brancas */
+.peca-branca {
+    background-color: #FFFFFF; /* Cor branca */
+    border-radius: 50%; /* Forma circular */
+    width: 30px; /* Tamanho da peça */
+    height: 30px; /* Tamanho da peça */
+    display: inline-block; /* Exibe a peça como um bloco inline */
+    margin: 5px; /* Margem entre as peças */
+    cursor: pointer; /* Muda o cursor para uma mão quando o usuário passa o mouse sobre a peça */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+  }
+  
+  .peca-branca.dama {
+    background-color: #CCCCCC; /* Cor cinza claro para a dama branca */
+    border: 2px solid #FFFFFF; /* Borda branca para a dama branca */
+  }
+  
+  /* Peças pretas */
+  .peca-preta {
+    background-color: #000000; /* Cor preta */
+    border-radius: 50%; /* Forma circular */
+    width: 30px; /* Tamanho da peça */
+    height: 30px; /* Tamanho da peça */
+    display: inline-block; /* Exibe a peça como um bloco inline */
+    margin: 5px; /* Margem entre as peças */
+    cursor: pointer; /* Muda o cursor para uma mão quando o usuário passa o mouse sobre a peça */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+  }
+  
+  .peca-preta.dama {
+    background-color: #666666; /* Cor cinza escuro para a dama preta */
+    border: 2px solid #000000; /* Borda preta para a dama preta */
+  }
+  
+  /* Efeito de hover */
+  .peca-branca:hover, .peca-preta:hover {
+    transform: scale(1.1); /* Aumenta o tamanho da peça quando o usuário passa o mouse sobre ela */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Aumenta a sombra quando o usuário passa o mouse sobre a peça */
+  }
+  
+  /* Efeito de seleção */
+  .peca-branca.selecionada, .peca-preta.selecionada {
+    border: 2px solid #FFFF00; /* Borda amarela para a peça selecionada */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Aumenta a sombra quando a peça é selecionada */
+  }
