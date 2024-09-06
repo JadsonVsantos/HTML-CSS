@@ -1,0 +1,89 @@
+/* Estilos gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: #ccc;
+}
+
+/* Estilos para o menu hamburguer */
+.menu-toggle {
+    display: none;
+}
+
+.menu-toggle:checked + .menu-icon {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu-toggle:checked ~ .menu {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+    .menu {
+        display: none;
+    }
+    .menu-toggle:checked ~ .menu {
+        display: block;
+    }
+}
