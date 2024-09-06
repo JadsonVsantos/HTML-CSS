@@ -36,12 +36,8 @@ tabelaDama.addEventListener("click", function(event) {
       } else {
         // A célula clicada não contém uma peça adversária
         celulaClicada.classList.add("dama");
-      }
-    }
-  }
-});
 
-// Cria as peças de Dama
+        // Cria as peças de Dama
 const pecasBrancas = [];
 const pecasPretas = [];
 
@@ -64,4 +60,63 @@ for (let i = 5; i < 8; i++) {
     const celula = tabelaDama.rows[i].cells[j];
     celula.innerHTML = pecasPretas.pop();
   }
+}
+      }
+    }
+  }
+});
+// Seleciona o tabuleiro
+const tabuleiro = document.querySelector('.tabuleiro');
+
+// Seleciona as peças
+const pecas = document.querySelectorAll('.peca-branca, .peca-preta');
+
+// Adiciona evento de clique às peças
+pecas.forEach((peca) => {
+  peca.addEventListener('click', (event) => {
+    // Verifica se a peça é selecionável
+    if (peca.classList.contains('selecionada')) {
+      // Remove a seleção da peça
+      peca.classList.remove('selecionada');
+    } else {
+      // Seleciona a peça
+      peca.classList.add('selecionada');
+    }
+  });
+});
+
+// Adiciona evento de drag and drop às peças
+pecas.forEach((peca) => {
+  peca.addEventListener('dragstart', (event) => {
+    // Salva a posição inicial da peça
+    event.dataTransfer.setData('text', peca.id);
+  });
+
+  peca.addEventListener('dragover', (event) => {
+    // Permite que a peça seja movida para a posição atual
+    event.preventDefault();
+  });
+
+  peca.addEventListener('drop', (event) => {
+    // Verifica se a peça pode ser movida para a posição atual
+    const pecaId = event.dataTransfer.getData('text');
+    const pecaOrigem = document.getElementById(pecaId);
+    const pecaDestino = event.target;
+
+    if (pecaOrigem && pecaDestino) {
+      // Verifica se a movimentação é válida (ex: não pode mover uma peça para uma posição ocupada)
+      if (validarMovimento(pecaOrigem, pecaDestino)) {
+        // Move a peça para a posição atual
+        pecaDestino.appendChild(pecaOrigem);
+      }
+    }
+  });
+});
+
+// Função para validar a movimentação da peça
+function validarMovimento(pecaOrigem, pecaDestino) {
+  // Verifica se a peça pode ser movida para a posição atual
+  // (ex: não pode mover uma peça para uma posição ocupada)
+  // Implemente a lógica de validação aqui
+  return true; // ou false, dependendo da lógica de validação
 }
