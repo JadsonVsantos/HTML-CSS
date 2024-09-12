@@ -1,43 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-	<title>Gym Website</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academia Fitness</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<header>
-		<nav>
-			<div id="menu-icon">
-				<span class="bar"></span>
-				<span class="bar"></span>
-				<span class="bar"></span>
-			</div>
-			<ul id="nav-list">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Classes</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<section id="hero">
-			<img src="gym-image.jpg" alt="Gym Image">
-			<h1>Welcome to Our Gym</h1>
-			<p>Join us today and start your fitness journey!</p>
-		</section>
-		<section id="about">
-			<h2>About Us</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget ligula vitae nisi tincidunt dapibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-		</section>
-		<section id="classes">
-			<h2>Classes</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget ligula vitae nisi tincidunt dapibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-		</section>
-		<section id="contact">
-			<h2>Contact</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget ligula vitae nisi tincidunt dapibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-		</section>
-	</main>
+  <header>
+    <nav>
+      <div class="logo">Academia Fitness</div>
+      <div class="menu-toggle" id="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Transforme seu corpo</h1>
+      <p>Treine conosco e atinja seus objetivos</p>
+      <a href="#contato" class="cta-btn">Comece agora</a>
+    </div>
+  </section>
+
+  <section id="sobre" class="sobre">
+    <h2>Sobre Nós</h2>
+    <p>Nossa academia oferece os melhores equipamentos e profissionais qualificados para ajudar você a alcançar o corpo dos seus sonhos.</p>
+  </section>
+
+  <section id="servicos" class="servicos">
+    <h2>Nossos Serviços</h2>
+    <div class="servicos-container">
+      <div class="servico-item">
+        <img src="imagens/treino personalizado.png" alt="Treinamento Personalizado">
+        <h3>Treinamento Personalizado</h3>
+        <p>Planos de treino ajustados às suas necessidades.</p>
+      </div>
+      <div class="servico-item">
+        <img src="imagens/musculação.png" alt="Musculação">
+        <h3>Musculação</h3>
+        <p>Equipamentos de última geração para o seu treino de força.</p>
+      </div>
+      <div class="servico-item">
+        <img src="imagens/aulas de fitness.png" alt="Aulas de Fitness">
+        <h3>Aulas de Fitness</h3>
+        <p>Participe das nossas aulas de grupo para se manter em forma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <h2>Contato</h2>
+    <p>Entre em contato para saber mais sobre nossos planos e serviços.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Academia Fitness. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
