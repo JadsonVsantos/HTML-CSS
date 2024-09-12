@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Veterinária</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Clínica Veterinária</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#contato">Agendamento</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Cuidado com seu pet</h1>
+      <p>Agende uma consulta e encontre produtos para o bem-estar do seu animal</p>
+      <a href="#contato" class="cta-btn">Agendar Consulta</a>
+    </div>
+  </section>
+
+  <section id="servicos" class="servicos">
+    <h2>Nossos Serviços</h2>
+    <div class="servicos-container">
+      <div class="servico-item">
+        <h3>Consultas Veterinárias</h3>
+        <p>Atendimento completo para seu pet, com profissionais qualificados.</p>
+      </div>
+      <div class="servico-item">
+        <h3>Vacinação</h3>
+        <p>Mantenha a saúde do seu animal em dia com nossas vacinas.</p>
+      </div>
+      <div class="servico-item">
+        <h3>Cirurgias</h3>
+        <p>Procedimentos cirúrgicos com toda a segurança e cuidado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="produtos" class="produtos">
+    <h2>Produtos à Venda</h2>
+    <div class="produtos-container">
+      <div class="produto-item">
+        <img src="imagens/ração pra cachorro.png" alt="Ração para cães">
+        <h3>Ração Premium</h3>
+        <p>Ração de alta qualidade para cães de todos os portes.</p>
+        <p>R$ 100,00</p>
+      </div>
+      <div class="produto-item">
+        <img src="imagens/brinquedos para gatos.jpg" alt="Brinquedo para gatos">
+        <h3>Brinquedo para Gatos</h3>
+        <p>Diversão garantida para o seu felino.</p>
+        <p>R$ 40,00</p>
+      </div>
+      <div class="produto-item">
+        <img src="imagens/shampoo para pets.jpg" alt="Shampoo para cães e gatos">
+        <h3>Shampoo para Pets</h3>
+        <p>Deixa o pelo do seu pet macio e saudável.</p>
+        <p>R$ 30,00</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <h2>Agende uma Consulta</h2>
+    <form id="agendamento-form">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="data">Data da Consulta:</label>
+      <input type="date" id="data" name="data" required>
+
+      <label for="hora">Hora da Consulta:</label>
+      <input type="time" id="hora" name="hora" required>
+
+      <label for="animal">Tipo de Animal:</label>
+      <select id="animal" name="animal">
+        <option value="cachorro">Cachorro</option>
+        <option value="gato">Gato</option>
+        <option value="outro">Outro</option>
+      </select>
+
+      <button type="submit">Agendar Consulta</button>
+    </form>
+
+    <p id="mensagem"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Clínica Veterinária. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
