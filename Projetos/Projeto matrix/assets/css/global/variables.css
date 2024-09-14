@@ -1,14 +1,21 @@
+/*Cores*/
 :root{
-    --cor-azul: #f4f4f4;
+    --cor-branco: #f4f4f4;
     --cor-preta:#000;
+    --cor-cinza:#333;
+    --cor-branca:#fff
+    --cor-vermelho:#ff6b6b;
+    --cor-brancos:white;
+
 /*
 p{
 color: var(--cor-preto);
 }
 */
-    --f1: clamp(1rem, 1vw, 1.2rem);
-    --f2: clamp(2rem, 1vw, 2.2rem);
-    --f3: clamp(3rem, 1vw, 3.2rem);
+/*Fontes */
+    --f1: clamp(1em, 1vw, 1.5em);
+    --f2: clamp(2em, 1vw, 2.2em);
+    --f3: clamp(3em, 1vw, 3.3em);
     /*
     p{
     font-size: var(--f1);

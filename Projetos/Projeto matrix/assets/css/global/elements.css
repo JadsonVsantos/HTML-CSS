@@ -1,3 +1,150 @@
-button.primario{
-    background-color: green;
+body{
+    font-size: var(--f1);
+    background-color: var(--cor-branco);
+    color: var(--cor-cinza)
+}
+
+head{
+    background-color: var(--cor-cinza);
+    color: var(--cor-branca);
+    padding: 1em 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.manu-toggle .bar{
+    width: 25px;
+    height: 3px;
+    background-color: var(--cor-branco);
+    margin: 4px 0;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li{
+    margin-left: 20px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: var(--cor-branca);
+    font-size: var(--f1);
+}
+
+.hero{
+    height: 100vh;
+    background: url('#.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--cor-branco);
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: var(--f3);
+}
+
+.hero-text p{
+    font-size: var(--f1);
+    margin: 20px 0;
+}
+
+.cta-btn {
+    background-color: var(--cor-vermelha);
+    color: var(--cor-brancos);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: var(--f1);
+}
+
+.sobre, .serviços, .contato{
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.serviços-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.serviços-item{
+    background-color: var(--cor-brancos);
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0,0.1);
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.serviços-item img{
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+footer{
+    background-color: var(--cor-cinza);
+    color: var(--cor-brancos);
+    text-align: center;
+    padding: 10px 0;
+}
+
+/*Responsividade*/
+@media (max-width:768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: -100px;
+        width: 100%;
+        background-color: var(--cor-cinza);
+        flex-direction: column;
+        transition: left 0.3s;
+    }
+.nav-links.active {
+    left: 0;
+}
+.nav-links li {
+    margin: 10px 0;
+    text-align: center;
+}
+.menu-toggle {
+    display: flex;
+}
+.serviços-container {
+    flex-direction: column;
+}
+}
+@media (max-width: 480px){
+    .hero-text h1 {
+        font-size: var(--f2);
+    }
+.hero-text p {
+    font-size: var(--f1);
+}
+.cta-btn {
+    font-size: var(--f1);
+    padding: 8px 15px;
+}
 }

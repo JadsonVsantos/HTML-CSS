@@ -1,23 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <title>Academia Fitness</title>
     <link rel="stylesheet" href="./assets/css/pages/index/index.css">
 </head>
+
 <body>
- <section class="um">
-..........................
- </section>
- <section class="dois">
-..........................
- </section>  
- <section class="três">
-..........................
-</section>  
-<section class="quatro">
-..........................
-</section>     
+    
+<header>
+<nav>
+<div class="logo">Academia Fitness</div>
+<div class="menu toggle" id="menu-toggle">
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+</div>
+<ul class="nav-links" id="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#serviços">Serviços</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="home" class="hero">
+<div class="hero-text">
+<h1>Transformade seu corpo</h1>
+<p>Treine conosco e atinja seus objetivos</p>
+<a href="#contato" class="cta-btn">Comece agora</a>
+</div>
+</section>
+
+<section id="sobre" class="sobre">
+<h2>Sobre Nós</h2>
+<p>Nossa academia oferece os melhores equipamentos e proficionais qualificados para ajudar você a alcançar o
+corpo dos seus sonhos</p>
+</section>
+
+<section id="servicos" class="servicos"></section>
+<h2>Nossos Serviços</h2>
+<div class="servicos-container">
+<div class="servico-item">
+<img src="imagens/treino personalizado.png" alt="Treinamento Personalizado">
+<h3>Treinamento Personalizado</h3>
+<p>Planos de treino ajustados às suas necessidades.</p>
+</div>
+<div class="servico-item">
+<img src="imagens/musculação.png" alt="Musculação">
+<h3>Musculação</h3>
+<p>Equipamentos de última geração para o seu treino de força.</p>
+</div>
+<div class="servico-item">
+<img src="imagens/aulas de fitness.png" alt="Aulas de Fitness">
+<h3>Aulas de Fitness</h3>
+<p>Participe das nossas aulas de grupo para se manter em forma.</p>
+</div>
+</div>
+</section>
+
+<section id="contato" class="contato">
+<h2>Contato</h2>
+<p>Entre em contato para saber mais sobre nossos planos e serviços.</p>
+</section>
+<footer>
+<p>&copy; 2024 Academia Fitness. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+menuToggle.addEventListener('click', () => {
+navLinks.classList.toggle('active');
+});
+</script>
 </body>
 </html>
