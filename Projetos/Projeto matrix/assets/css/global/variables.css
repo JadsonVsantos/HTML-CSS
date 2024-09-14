@@ -1,0 +1,17 @@
+:root{
+    --cor-azul: #f4f4f4;
+    --cor-preta:#000;
+/*
+p{
+color: var(--cor-preto);
+}
+*/
+    --f1: clamp(1rem, 1vw, 1.2rem);
+    --f2: clamp(2rem, 1vw, 2.2rem);
+    --f3: clamp(3rem, 1vw, 3.2rem);
+    /*
+    p{
+    font-size: var(--f1);
+    }
+    */
+}
