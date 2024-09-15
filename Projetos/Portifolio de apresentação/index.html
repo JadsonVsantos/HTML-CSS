@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Programador</title>
+  <link rel="stylesheet" href="./assets/css/elements.css">
+</head>
+<body>
+
+  <!-- Header e Apresentação -->
+  <header>
+    <nav>
+      <div class="logo">Meu Portfólio</div>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Olá, Eu sou Jadson Venâncio dos Santos</h1>
+        <p>Desenvolvedor Full Stack</p>
+        <a href="#projetos" class="cta-btn">Ver Meus Projetos</a>
+      </div>
+    </section>
+  </header>
+
+  <!-- Seção Sobre -->
+  <section id="sobre" class="sobre">
+    <h2>Sobre Mim</h2>
+    <p>Sou desenvolvedor full stack com experiência em várias linguagens e tecnologias. Minha paixão é criar soluções eficientes e escaláveis para problemas complexos. Tenho experiência em front-end, back-end e bancos de dados.</p>
+  </section>
+
+  <!-- Seção Habilidades -->
+  <section id="habilidades" class="habilidades">
+    <h2>Habilidades Técnicas</h2>
+    <div class="habilidades-container">
+      <div class="habilidade-item">
+        <h3>Front-end</h3>
+        <p>HTML, CSS, JavaScript, React, Angular</p>
+      </div>
+      <div class="habilidade-item">
+        <h3>Back-end</h3>
+        <p>Node.js, Express, PHP, Java, Python</p>
+      </div>
+      <div class="habilidade-item">
+        <h3>Bancos de Dados</h3>
+        <p>MySQL, PostgreSQL, MongoDB</p>
+      </div>
+      <div class="habilidade-item">
+        <h3>Outras Tecnologias</h3>
+        <p>Docker, Git, AWS, CI/CD</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Projetos -->
+  <section id="projetos" class="projetos">
+    <h2>Meus Projetos</h2>
+    <div class="projetos-container">
+      <div class="projeto-item">
+        <img src="projeto1.jpg" alt="Projeto 1">
+        <h3>Sistema de Gerenciamento de Tarefas</h3>
+        <p>Um sistema web completo para gerenciamento de tarefas, construído com React e Node.js.</p>
+        <a href="https://github.com/seuusuario/projeto1" target="_blank">Ver no GitHub</a>
+      </div>
+      <div class="projeto-item">
+        <img src="projeto2.jpg" alt="Projeto 2">
+        <h3>Aplicativo de E-commerce</h3>
+        <p>Plataforma de e-commerce com integração de pagamento, desenvolvida usando PHP e MySQL.</p>
+        <a href="https://github.com/seuusuario/projeto2" target="_blank">Ver no GitHub</a>
+      </div>
+      <div class="projeto-item">
+        <img src="projeto3.jpg" alt="Projeto 3">
+        <h3>API RESTful de Gerenciamento de Usuários</h3>
+        <p>API robusta em Node.js para gerenciar dados de usuários com autenticação JWT.</p>
+        <a href="https://github.com/seuusuario/projeto3" target="_blank">Ver no GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Contato -->
+  <section id="contato" class="contato">
+    <h2>Entre em Contato</h2>
+    <form id="form-contato">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+    <p id="mensagem-enviada"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Meu Portfólio. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
