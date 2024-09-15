@@ -6,7 +6,7 @@
   
   body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f56d69e3;
     color: #333;
   }
   
@@ -45,7 +45,7 @@
   
   .hero {
     height: 100vh;
-    background: url('../imagens/capa\ download.jpeg') no-repeat center center/cover;
+    background: url('../imagens/capa\ download\ \(2\).jpeg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
