@@ -81,6 +81,7 @@ nav{
 .sobre, .serviços, .contato{
     padding: 50px 20px;
     text-align: center;
+    
 }
 
 .serviços-container{
@@ -97,11 +98,12 @@ nav{
     padding: 20px;
     flex: 1;
     min-width: 250px;
-}
+}    
 
 .serviços-item img{
     max-width: 100%;
     border-radius: 5px;
+   
 }
 
 footer{
