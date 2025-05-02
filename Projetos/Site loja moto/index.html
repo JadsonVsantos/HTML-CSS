@@ -1,0 +1,732 @@
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoSpeed - Peças e Serviços para Motocicletas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bike {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1558981806-ec527fa14c08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .part-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+        .service-card:hover {
+            transform: scale(1.02);
+        }
+        .schedule-slot {
+            transition: all 0.2s ease;
+        }
+        .schedule-slot:hover {
+            background-color: #ef4444;
+            color: white;
+        }
+        .schedule-slot.selected {
+            background-color: #dc2626;
+            color: white;
+        }
+        .floating-badge {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-motorcycle text-red-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">MotoSpeed</span>
+                    </div>
+                    <div class="hidden md:ml-10 md:flex md:space-x-8">
+                        <a href="#home" class="border-red-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Início</a>
+                        <a href="#parts" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Peças</a>
+                        <a href="#services" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Serviços</a>
+                        <a href="#schedule" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Agendamento</a>
+                        <a href="#contact" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contato</a>
+                    </div>
+                </div>
+                <div class="hidden md:ml-4 md:flex md:items-center">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="sr-only">Carrinho</span>
+                        </button>
+                        <span class="ml-1 text-sm font-medium">3</span>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#home" class="bg-red-50 border-red-500 text-red-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Início</a>
+                <a href="#parts" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Peças</a>
+                <a href="#services" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Serviços</a>
+                <a href="#schedule" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Agendamento</a>
+                <a href="#contact" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Contato</a>
+                <div class="pt-4 pb-3 border-t border-gray-200">
+                    <div class="flex items-center px-4">
+                        <button class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="sr-only">Carrinho</span>
+                        </button>
+                        <span class="ml-1 text-sm font-medium">3 itens</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bike text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Tudo para sua <span class="text-red-400">moto</span> em um só lugar</h1>
+                    <p class="text-lg text-gray-200 mb-8">Peças originais, acessórios premium e serviços especializados para deixar sua motocicleta em perfeitas condições.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-red-600 hover:bg-red-500 text-white px-6 py-3 rounded-lg font-medium text-lg transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-shopping-cart mr-2"></i> Comprar Peças
+                        </button>
+                        <button class="bg-transparent hover:bg-white hover:text-gray-900 text-white border-2 border-white px-6 py-3 rounded-lg font-medium text-lg transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-calendar-alt mr-2"></i> Agendar Serviço
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative hidden md:block">
+                    <div class="absolute -bottom-10 -right-10 bg-white p-6 rounded-xl shadow-2xl w-64">
+                        <div class="flex items-center">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-award text-red-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">Garantia</p>
+                                <p class="font-bold text-gray-900">12 meses em peças</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Parts -->
+    <section id="parts" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Peças em Destaque</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">As melhores peças e acessórios para sua motocicleta</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Part 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md part-card transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1599741848477-0cdd9a6a0ccd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pneu" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            -15%
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Pneu Dianteiro Pirelli</h3>
+                        <p class="text-sm text-gray-500 mb-2">Modelo Scorpion Trail II</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-gray-400 line-through text-sm">R$ 499,90</span>
+                                <span class="text-red-600 font-bold text-lg ml-2">R$ 424,90</span>
+                            </div>
+                            <button class="bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Part 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md part-card transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1599741848477-0cdd9a6a0ccd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Freio" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Novo
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Kit Pastilhas de Freio</h3>
+                        <p class="text-sm text-gray-500 mb-2">EBC Double H Sintered</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-red-600 font-bold text-lg">R$ 189,90</span>
+                            </div>
+                            <button class="bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Part 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md part-card transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1599741848477-0cdd9a6a0ccd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Escape" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Sistema de Escape</h3>
+                        <p class="text-sm text-gray-500 mb-2">Akrapovic Titanium Slip-On</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-red-600 font-bold text-lg">R$ 3.299,90</span>
+                            </div>
+                            <button class="bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Part 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md part-card transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1599741848477-0cdd9a6a0ccd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Farol" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Farol LED Auxiliar</h3>
+                        <p class="text-sm text-gray-500 mb-2">Denali DR1 - Kit Completo</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-red-600 font-bold text-lg">R$ 899,90</span>
+                            </div>
+                            <button class="bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <button class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-2 rounded-lg font-medium transition duration-300">
+                    Ver Todas as Peças
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Nossos Serviços</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Realizamos todos os tipos de manutenção e customização</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md service-card transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1599741848477-0cdd9a6a0ccd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Revisão" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-gray-900">Revisão Completa</h3>
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Popular</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Revisão completa com troca de óleo, filtros, verificação de freios, suspensão, corrente e todos os sistemas da moto.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold text-lg">A partir de R$ 299,90</span>
+                            <button class="text-red-600 hover:text-red-800 font-medium flex items-center">
+                                Agendar <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md service-card transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1599741848477-0cdd9a6a0ccd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pintura" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Pintura Personalizada</h3>
+                        <p class="text-gray-600 mb-4">Serviço completo de pintura com desmontagem, preparação de superfície, pintura e montagem final.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold text-lg">A partir de R$ 899,90</span>
+                            <button class="text-red-600 hover:text-red-800 font-medium flex items-center">
+                                Agendar <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md service-card transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1599741848477-0cdd9a6a0ccd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Suspensão" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Regulagem de Suspensão</h3>
+                        <p class="text-gray-600 mb-4">Ajuste profissional da suspensão de acordo com seu peso e estilo de pilotagem para melhor conforto e desempenho.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-bold text-lg">A partir de R$ 199,90</span>
+                            <button class="text-red-600 hover:text-red-800 font-medium flex items-center">
+                                Agendar <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Agende seu Serviço</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Escolha o melhor horário para trazer sua moto</p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6">Selecione o serviço</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
+                                <input id="service-1" name="service" type="radio" class="h-4 w-4 text-red-600 focus:ring-red-500">
+                                <label for="service-1" class="ml-3 block">
+                                    <span class="font-medium text-gray-900">Revisão Completa</span>
+                                    <span class="text-gray-500 block text-sm">R$ 299,90</span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
+                                <input id="service-2" name="service" type="radio" class="h-4 w-4 text-red-600 focus:ring-red-500">
+                                <label for="service-2" class="ml-3 block">
+                                    <span class="font-medium text-gray-900">Troca de Óleo e Filtros</span>
+                                    <span class="text-gray-500 block text-sm">R$ 149,90</span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
+                                <input id="service-3" name="service" type="radio" class="h-4 w-4 text-red-600 focus:ring-red-500">
+                                <label for="service-3" class="ml-3 block">
+                                    <span class="font-medium text-gray-900">Regulagem de Suspensão</span>
+                                    <span class="text-gray-500 block text-sm">R$ 199,90</span>
+                                </label>
+                            </div>
+                            
+                            <div class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-red-300 cursor-pointer">
+                                <input id="service-4" name="service" type="radio" class="h-4 w-4 text-red-600 focus:ring-red-500">
+                                <label for="service-4" class="ml-3 block">
+                                    <span class="font-medium text-gray-900">Diagnóstico Eletrônico</span>
+                                    <span class="text-gray-500 block text-sm">R$ 129,90</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-semibold text-gray-900">Selecione a data e horário</h3>
+                            <div class="flex space-x-2">
+                                <button id="prev-week" class="p-2 rounded-full hover:bg-gray-200">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button id="next-week" class="p-2 rounded-full hover:bg-gray-200">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="overflow-x-auto mb-6">
+                            <div class="flex space-x-2" id="week-days">
+                                <!-- Days will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3" id="time-slots">
+                            <!-- Time slots will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="mt-6 bg-red-50 p-4 rounded-lg hidden" id="booking-summary">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-gray-600">Você selecionou:</p>
+                                    <p class="font-medium text-gray-900" id="selected-service-text">Serviço</p>
+                                    <p class="font-medium text-gray-900" id="selected-slot-text">Data e Hora</p>
+                                </div>
+                                <button id="confirm-booking" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">
+                                    Confirmar Agendamento
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="bg-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h3 class="text-lg font-medium text-gray-500">Trabalhamos com as melhores marcas</h3>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Pirelli" alt="Pirelli" class="h-12 object-contain opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Akrapovic" alt="Akrapovic" class="h-12 object-contain opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Brembo" alt="Brembo" class="h-12 object-contain opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Showa" alt="Showa" class="h-12 object-contain opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Motul" alt="Motul" class="h-12 object-contain opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Yamaha" alt="Yamaha" class="h-12 object-contain opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:space-x-12">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Entre em Contato</h2>
+                    <p class="text-gray-600 mb-8">Tem dúvidas sobre peças ou quer agendar um serviço? Entre em contato conosco.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Endereço</h4>
+                                <p class="text-gray-600">Av. das Motocicletas, 1234 - Centro<br>São Paulo - SP</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Telefone</h4>
+                                <p class="text-gray-600">(11) 1234-5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Email</h4>
+                                <p class="text-gray-600">contato@motospeed.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Horário de Funcionamento</h4>
+                                <p class="text-gray-600">Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full">
+                            <i class="fab fa-facebook-f text-gray-700"></i>
+                        </a>
+                        <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full">
+                            <i class="fab fa-instagram text-gray-700"></i>
+                        </a>
+                        <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full">
+                            <i class="fab fa-whatsapp text-gray-700"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6">Envie uma mensagem</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Assunto</label>
+                                <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500">
+                                    <option>Dúvida sobre peças</option>
+                                    <option>Agendamento de serviço</option>
+                                    <option>Orçamento</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-motorcycle text-red-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">MotoSpeed</span>
+                    </div>
+                    <p class="text-gray-400">Especialistas em peças e serviços para motocicletas desde 2010.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Início</a></li>
+                        <li><a href="#parts" class="text-gray-400 hover:text-white transition duration-300">Peças</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Serviços</a></li>
+                        <li><a href="#schedule" class="text-gray-400 hover:text-white transition duration-300">Agendamento</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Serviços</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Revisão Completa</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Troca de Óleo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Regulagem de Suspensão</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Pintura Personalizada</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Diagnóstico Eletrônico</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Cadastre-se para receber promoções e novidades.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Seu email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-900 w-full">
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 MotoSpeed. Todos os direitos reservados.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center floating-badge">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Schedule functionality
+        const services = [
+            { id: 'service-1', name: 'Revisão Completa', price: 'R$ 299,90' },
+            { id: 'service-2', name: 'Troca de Óleo e Filtros', price: 'R$ 149,90' },
+            { id: 'service-3', name: 'Regulagem de Suspensão', price: 'R$ 199,90' },
+            { id: 'service-4', name: 'Diagnóstico Eletrônico', price: 'R$ 129,90' }
+        ];
+
+        const timeSlots = [
+            '08:00', '09:00', '10:00', '11:00', 
+            '13:00', '14:00', '15:00', '16:00'
+        ];
+
+        let selectedService = null;
+        let selectedDate = null;
+        let selectedTime = null;
+
+        // Initialize week days
+        function initWeekDays() {
+            const weekDaysContainer = document.getElementById('week-days');
+            weekDaysContainer.innerHTML = '';
+            
+            const today = new Date();
+            
+            for (let i = 0; i < 7; i++) {
+                const date = new Date();
+                date.setDate(today.getDate() + i);
+                
+                const dayElement = document.createElement('div');
+                dayElement.className = 'flex flex-col items-center p-2 border rounded-lg cursor-pointer min-w-[70px]';
+                dayElement.dataset.date = date.toISOString().split('T')[0];
+                
+                if (i === 0) {
+                    dayElement.classList.add('border-red-500', 'bg-red-50');
+                    selectedDate = date.toISOString().split('T')[0];
+                }
+                
+                dayElement.innerHTML = `
+                    <span class="text-sm font-medium">${date.toLocaleDateString('pt-BR', { weekday: 'short' })}</span>
+                    <span class="text-lg font-bold">${date.getDate()}</span>
+                `;
+                
+                dayElement.addEventListener('click', function() {
+                    document.querySelectorAll('#week-days > div').forEach(el => {
+                        el.classList.remove('border-red-500', 'bg-red-50');
+                    });
+                    this.classList.add('border-red-500', 'bg-red-50');
+                    selectedDate = this.dataset.date;
+                    updateBookingSummary();
+                });
+                
+                weekDaysContainer.appendChild(dayElement);
+            }
+        }
+
+        // Initialize time slots
+        function initTimeSlots() {
+            const timeSlotsContainer = document.getElementById('time-slots');
+            timeSlotsContainer.innerHTML = '';
+            
+            timeSlots.forEach(time => {
+                const slotElement = document.createElement('div');
+                slotElement.className = 'schedule-slot bg-white border border-gray-200 rounded-lg p-3 text-center cursor-pointer';
+                slotElement.textContent = time;
+                slotElement.dataset.time = time;
+                
+                slotElement.addEventListener('click', function() {
+                    document.querySelectorAll('#time-slots > div').forEach(el => {
+                        el.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                    selectedTime = this.dataset.time;
+                    updateBookingSummary();
+                });
+                
+                timeSlotsContainer.appendChild(slotElement);
+            });
+        }
+
+        // Update booking summary
+        function updateBookingSummary() {
+            const bookingSummary = document.getElementById('booking-summary');
+            const selectedServiceText = document.getElementById('selected-service-text');
+            const selectedSlotText = document.getElementById('selected-slot-text');
+            
+            if (selectedService && selectedDate && selectedTime) {
+                const dateObj = new Date(selectedDate);
+                const formattedDate = dateObj.toLocaleDateString('pt-BR', { 
+                    weekday: 'long', 
+                    day: 'numeric', 
+                    month: 'long' 
+                });
+                
+                selectedServiceText.textContent = `${selectedService.name} (${selectedService.price})`;
+                selectedSlotText.textContent = `${formattedDate} às ${selectedTime}`;
+                bookingSummary.classList.remove('hidden');
+            } else {
+                bookingSummary.classList.add('hidden');
+            }
+        }
+
+        // Service selection
+        services.forEach(service => {
+            document.getElementById(service.id).addEventListener('change', function() {
+                if (this.checked) {
+                    selectedService = service;
+                    updateBookingSummary();
+                }
+            });
+        });
+
+        // Confirm booking
+        document.getElementById('confirm-booking').addEventListener('click', function() {
+            if (selectedService && selectedDate && selectedTime) {
+                alert(`Agendamento confirmado!\n\nServiço: ${selectedService.name}\nData: ${selectedDate}\nHorário: ${selectedTime}\n\nObrigado por escolher a MotoSpeed!`);
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initWeekDays();
+            initTimeSlots();
+            
+            // Week navigation
+            document.getElementById('prev-week').addEventListener('click', function() {
+                // In a real app, this would load the previous week
+                alert('Carregando semana anterior...');
+            });
+            
+            document.getElementById('next-week').addEventListener('click', function() {
+                // In a real app, this would load the next week
+                alert('Carregando próxima semana...');
+            });
+        });
+    </script>
+</body>
+</html>
+
